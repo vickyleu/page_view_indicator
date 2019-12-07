@@ -51,7 +51,9 @@ class _PageViewIndicatorState extends State<PageViewIndicator>
 
     if (currPage != _prevPage) {
       if(_prevPage!=null&&_prevPage>=widget.length){
+        setState(() {
 
+        });
       }else{
         _indicators[_prevPage].normalController.forward();
         _indicators[_prevPage].highlightedController.reverse();
@@ -60,6 +62,9 @@ class _PageViewIndicatorState extends State<PageViewIndicator>
        if(currPage>=widget.length){
          _indicators.map((f){
            f.normalController.reverse();
+         });
+         setState(() {
+
          });
        }else{
          _indicators[currPage].normalController.reverse();
@@ -122,7 +127,7 @@ class _PageViewIndicatorState extends State<PageViewIndicator>
   }
 
   Widget _buildIndicator(Indicator indicator) {
-    return Padding(
+    return (widget.currentPage??0)>=widget.length?Container():Padding(
       padding: widget.indicatorPadding,
       child: Stack(
         alignment: AlignmentDirectional.center,
