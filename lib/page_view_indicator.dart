@@ -125,7 +125,7 @@ class _PageViewIndicatorState extends State<PageViewIndicator>
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: widget.alignment,
-      children:(widget.currentPage??0)>=widget.length?[Container()]:(
+      children:(widget.pageIndexNotifier.value??0)>=widget.length?[Container()]:(
           _indicators
               .map<Widget>((indicator) => _buildIndicator(indicator))
               .toList()
