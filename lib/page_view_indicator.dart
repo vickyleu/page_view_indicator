@@ -50,10 +50,17 @@ class _PageViewIndicatorState extends State<PageViewIndicator>
     final currPage = widget.pageIndexNotifier.value;
 
     if (currPage != _prevPage) {
-      if(_prevPage!=null&&_prevPage>=widget.length){
+      if(currPage>=widget.length){
         setState(() {
 
         });
+      }else if(_prevPage>=widget.length){
+        setState(() {
+
+        });
+      }
+      if(_prevPage!=null&&_prevPage>=widget.length){
+
       }else{
         _indicators[_prevPage].normalController.forward();
         _indicators[_prevPage].highlightedController.reverse();
@@ -63,9 +70,7 @@ class _PageViewIndicatorState extends State<PageViewIndicator>
          _indicators.map((f){
            f.normalController.reverse();
          });
-         setState(() {
 
-         });
        }else{
          _indicators[currPage].normalController.reverse();
          _indicators[currPage].highlightedController.forward();
