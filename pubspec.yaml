@@ -4,14 +4,9 @@ description: Builds indication marks for PageView from any Widget and/or Animati
 author: leocavalcante <lc@leocavalcante.com>
 homepage: https://github.com/leocavalcante/page_view_indicator
 
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
 dependencies:
   flutter:
     sdk: flutter
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-
-environment:
-  sdk: ">=2.0.0 <3.0.0"
-  flutter: any
