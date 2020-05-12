@@ -117,7 +117,10 @@ class _PageViewIndicatorState extends State<PageViewIndicator>
   @override
   void dispose() {
     _indicators.forEach((indicator) => indicator.dispose());
-    widget.pageIndexNotifier.removeListener(_indicatorsListener);
+    try{
+      widget.pageIndexNotifier.removeListener(_indicatorsListener);
+    }catch(e){}
+
     super.dispose();
   }
 
